@@ -27,6 +27,14 @@ class ConsoleGame
     input.to_i
   end
 
+  def start(board, end_game, game)
+    until board.is_won? || board.has_draw?
+      display_board(board)
+      game.handle_input
+    end
+    end_game.call
+  end
+
   def ask_for_game_to_replay(games)
     print("What game would you like to rewatch?")
     i = 1

@@ -1,4 +1,5 @@
 require 'game_recording'
+require 'console_game'
 
 RSpec.describe GameRecording do
   before (:each) do

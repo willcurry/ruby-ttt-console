@@ -16,12 +16,4 @@ RSpec.describe Game do
     @game.make_move(0)
     expect(@game.board.cells[0]).to eq('x')
   end
-
-  it "knows if the game is over" do
-    board = Board.new(['x', 'x', 'x', '-', '-', '-', '-', '-', '-'])
-    player_one = HumanPlayer.new('x')
-    player_two = HumanPlayer.new('o')
-    game = Game.new(board, player_one, player_two, ConsoleGame.new)
-    expect(game.is_over?).to eq(true)
-  end
 end
