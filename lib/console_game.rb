@@ -27,12 +27,13 @@ class ConsoleGame
     input.to_i
   end
 
-  def start(board, end_game, game)
-    until board.is_won? || board.has_draw?
-      display_board(board)
+  def start(game)
+    until game.board.is_won? || game.board.has_draw?
+      display_board(game.board)
       game.handle_input
     end
-    end_game.call
+    game_over(game.board)
+    game.end
   end
 
   def ask_for_game_to_replay(games)
