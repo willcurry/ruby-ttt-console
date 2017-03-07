@@ -3,6 +3,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__))
 require 'console_game'
 require 'game_creator'
 require 'game_catalogue'
+require 'modes'
 
 console = ConsoleGame.new
 game_creator = GameCreator.new(console)
