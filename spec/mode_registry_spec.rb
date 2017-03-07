@@ -1,5 +1,6 @@
 require 'mode_registry'
 require 'console_game'
+require 'modes'
 
 RSpec.describe ModeRegistry do
   before (:each) do
