@@ -7,17 +7,15 @@ require 'console_game'
 RSpec.describe Redo do
   before (:each) do
     @game = Game.new(Board.new, HumanPlayer.new('x'), HumanPlayer.new('o'), ConsoleGame.new)
-    @undo = Undo.new(@game)
-    @redo = Redo.new(@game)
+    @command_manager = CommandManager.new(@game)
   end
   
   it "can redo a round" do
     @game.make_move(1)
-    old = @game.board.cells
-    @undo.run
-    @redo.give_boards([old])
+    old = @game.board
+    @command_manager.manage('undo')
     expect(@game.board).not_to eq(old)
-    @redo.run
+    @command_manager.manage('redo')
     expect(@game.board).to eq(old)
   end
 end
