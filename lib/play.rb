@@ -12,4 +12,4 @@ game = game_creator.create
 game.start
 game_catalogue.add(game.recording)
 recording = game_catalogue.select_game
-recording.play
+recording.get.start
