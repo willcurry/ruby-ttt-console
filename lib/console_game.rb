@@ -22,16 +22,24 @@ class ConsoleGame
     board.is_won? ? print(board.last_move + " has won the game!") : print("The game is a draw!")
   end
 
+  def end_game
+
+  end
+
   def ask_for_board_size
     print("What board size would you like?")
     input.to_i
   end
 
-  def start(game)
+  def game_loop(game)
     until game.board.is_won? || game.board.has_draw?
       display_board(game.board)
       game.handle_input
     end
+  end
+
+  def start(game)
+    game_loop(game)
     game_over(game.board)
     game.end
   end

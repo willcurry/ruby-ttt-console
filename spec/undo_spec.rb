@@ -10,7 +10,7 @@ RSpec.describe Undo do
   end
   
   it "can undo a round" do
-    @game.make_move(1)
+    @command_manager.manage('1')
     old = @game.board.cells
     @command_manager.manage('undo')
     expect(@game.board.cells).not_to eq(old)

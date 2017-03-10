@@ -11,7 +11,7 @@ RSpec.describe Redo do
   end
   
   it "can redo a round" do
-    @game.make_move(1)
+    @command_manager.manage('1')
     old = @game.board
     @command_manager.manage('undo')
     expect(@game.board).not_to eq(old)

@@ -7,7 +7,7 @@ RSpec.describe GameCatalogue do
     @output = StringIO.new
     @input = StringIO.new
     @console = ConsoleGame.new(@output, @input)
-    @game_catalogue = GameCatalogue.new(@console)
+    @game_catalogue = GameCatalogue.new
     @moves = Moves.new([1, 2, 3, 4, 5])
     @game_recording = GameRecording.new(@console, 3, @moves)
   end
@@ -23,6 +23,7 @@ RSpec.describe GameCatalogue do
     expected = GameRecording.new(@console, 3, @moves)
     @game_catalogue.add(@game_recording)
     @game_catalogue.add(expected)
-    expect(@game_catalogue.select_game).to eq(expected)
+    id = @console.ask_for_game_to_replay(@game_catalogue.games)
+    expect(@game_catalogue.select_game(id)).to eq(expected)
   end
 end

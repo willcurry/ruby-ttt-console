@@ -7,9 +7,10 @@ require 'modes'
 
 console = ConsoleGame.new
 game_creator = GameCreator.new(console)
-game_catalogue = GameCatalogue.new(console)
+game_catalogue = GameCatalogue.new
 game = game_creator.create
 game.start
 game_catalogue.add(game.recording)
-recording = game_catalogue.select_game
+id = console.ask_for_game_to_replay(game_catalogue.games)
+recording = game_catalogue.select_game(id)
 recording.get.start
